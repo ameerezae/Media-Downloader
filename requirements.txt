@@ -1,0 +1,4 @@
+requests[socks]
+prometheus-client
+shortuuid
+timeout-decorator==0.5.0
