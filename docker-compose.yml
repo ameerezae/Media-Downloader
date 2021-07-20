@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  downloader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: downloader:v1
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - ".:/code:z"
+    environment:
+      DOWNLOADER_MODE: "VPN"
+      DOWNLOADER_THREAD_NO: "40"
+      REQUEST_TIMEOUT: "30"
+      CONNECTION_ESTABLISHMENT_TIMEOUT: "1"
+      DOWNLOADING_PATH: "media"
+      DOWNLOADER_MAX_RETRY: "1"
+
