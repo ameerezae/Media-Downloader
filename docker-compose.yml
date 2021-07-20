@@ -17,4 +17,6 @@ services:
       CONNECTION_ESTABLISHMENT_TIMEOUT: "1"
       DOWNLOADING_PATH: "media"
       DOWNLOADER_MAX_RETRY: "1"
+    ports:
+    - "5000:8000"
 
