@@ -1,4 +1,3 @@
-import argparse
 import os
 import shutil
 import sys
@@ -46,7 +45,6 @@ class Downloader:
 
     def __init__(self, max_retry,
                  downloading_path,
-                 logger,
                  timeout,
                  initial_data=data_fields,
                  mode="VPN",
@@ -58,7 +56,6 @@ class Downloader:
         self.mode = mode
         self.__data = initial_data
         self.lock = threading.Lock()
-        self.logger = logger
         self.connection_establish_timeout = conn_establish_timeout if conn_establish_timeout > 1 else 1
         self.MAX_RETRY = max_retry if max_retry >= 1 else 0
         if number_of_th <= 0:
@@ -186,7 +183,7 @@ class Downloader:
                     req = self.download_file(image_url)
                     if req.status_code == 200:
                         unique_name = shortuuid.uuid()
-                        image_path_name = f'/{self.downloading_path}/{unique_name}.jpeg'
+                        image_path_name = f'./{self.downloading_path}/{unique_name}.jpeg'
                         self.lock.acquire()
                         self.__data['bytes_downloaded'] += len(req.content)
                         self.__store_succeeded_to_download_urls_path(image_path_name)
@@ -199,7 +196,7 @@ class Downloader:
                             self.__store_failed_to_download_urls(image_url, req.status_code)
                             self.lock.release()
                         retry = True
-                    self.logger.info("Downloading...")
+                    print("Downloading...")
                 except Timeout:
                     self.lock.acquire()
                     self.__store_failed_to_download_urls(image_url, 'TIMEOUT')
@@ -238,12 +235,12 @@ class Downloader:
         start_time = time.time()
 
         threads = self.__start_threads(chunked_urls)
-        self.logger.info(f'{len(threads)} thread started.')
+        print(f'{len(threads)} thread started.')
 
         for thread in threads:
             thread.join()
         execution_time = time.time() - start_time
-        self.logger.info(f"execution time: {execution_time}s")
+        print(f"execution time: {execution_time}s")
         self.__data['time'] = round(execution_time, 2)
         self.__calculate_avg_rate()
 
