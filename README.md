@@ -1,10 +1,7 @@
 # Media Downloader
-
-#### under construction ...
-
+<img src="https://img.shields.io/static/v1?message=Python&logo=python&labelColor=306998&color=ffd43b&logoColor=white&label=%20&style=flat-square" alt="python"> <img src="https://img.shields.io/static/v1?message=Docker&logo=docker&labelColor=384d54&color=0db7ed&logoColor=white&label=%20&style=flat-square" alt="docker"> <img src="https://img.shields.io/static/v1?message=Prometheus&logo=prometheus&labelColor=ce3f3c&color=ce3f3c&logoColor=white&label=%20&style=flat-square" alt="prometheus"> <img src="https://img.shields.io/static/v1?message=Grafana&logo=Grafana&labelColor=F05A28&color=F05A28&logoColor=white&label=%20&style=flat-square" alt="grafana">
 
 ## Description
-<img src="https://img.shields.io/static/v1?message=Python&logo=python&labelColor=306998&color=ffd43b&logoColor=white&label=%20&style=flat-square" alt="python"> <img src="https://img.shields.io/static/v1?message=Docker&logo=docker&labelColor=384d54&color=0db7ed&logoColor=white&label=%20&style=flat-square" alt="docker"> <img src="https://img.shields.io/static/v1?message=Prometheus&logo=prometheus&labelColor=ce3f3c&color=ce3f3c&logoColor=white&label=%20&style=flat-square" alt="prometheus">
 
 A **Multi-Thread** Media downloader for small size files like image.
 
@@ -31,11 +28,12 @@ run downloader by following command:
 ```sudo docker-compose up```
 
 after successfully run this command logs should be like this:
-\
+
 <img src="./console.png" alt="console">
 
-`Prometheus Metrics` are accessible in `localhost:5000`\
-Metrics like:
+`Prometheus Metrics` are accessible in `localhost:5000`
+
+Metrics are:
 1. `File_Average_Size`
 1. `Total` count
 1. `Faild` count
@@ -56,7 +54,7 @@ All downloaded file saved with a unique `uuid` in  `DOWNLOADING_PATH` folder spe
 You can clone `prometheus` from [here](https://github.com/vegasbrianc/prometheus) and track live data reporting by 
 `Gragana` panel running on `localhost:3000`
 
-**Notice**: you should change `targets` in `prometheus/prometheus/prometheus.yml` to 
+**Notice**: you should change `targets` in `prometheus/prometheus/prometheus.yml` to:
 ```yaml
 scrape_configs:
   - job_name: my-service
@@ -66,7 +64,7 @@ scrape_configs:
 ```
 
 **Grafana** panel should be something like this:
-\
+
 <img src="./grafana.png" alt="grafana">
 
 ### Authors
