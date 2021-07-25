@@ -149,7 +149,7 @@ class Downloader:
 
     @property
     def file_average_size(self):
-        average_size_in_bytes = self.__data['bytes_downloaded'] / self.total_count if self.total_count != 0 else 0
+        average_size_in_bytes = self.__data['bytes_downloaded'] / self.success_count if self.success_count != 0 else 0
         average_size_in_kilo_bytes = average_size_in_bytes / 1024
         return round(average_size_in_kilo_bytes, 2)
 
