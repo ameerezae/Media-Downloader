@@ -184,12 +184,12 @@ class Downloader:
                     if req.status_code == 200:
                         unique_name = shortuuid.uuid()
                         image_path_name = f'./{self.downloading_path}/{unique_name}.jpeg'
+                        open(image_path_name, 'wb').write(req.content)
+                        retry = False
                         self.lock.acquire()
                         self.__data['bytes_downloaded'] += len(req.content)
                         self.__store_succeeded_to_download_urls_path(image_path_name)
                         self.lock.release()
-                        open(image_path_name, 'wb').write(req.content)
-                        retry = False
                     else:
                         if retry_counter > self.MAX_RETRY:
                             self.lock.acquire()
@@ -212,7 +212,7 @@ class Downloader:
                         self.lock.acquire()
                         self.__store_failed_to_download_urls(image_url, 'OTHER')
                         self.lock.release()
-                        retry = True
+                    retry = True
 
     @timeout_decorator.timeout(timeout_seconds)
     def download_file(self, file):
