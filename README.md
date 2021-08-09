@@ -1,5 +1,8 @@
 # Media Downloader
 <img src="https://img.shields.io/static/v1?message=Python&logo=python&labelColor=306998&color=ffd43b&logoColor=white&label=%20&style=flat-square" alt="python"> <img src="https://img.shields.io/static/v1?message=Docker&logo=docker&labelColor=384d54&color=0db7ed&logoColor=white&label=%20&style=flat-square" alt="docker"> <img src="https://img.shields.io/static/v1?message=Prometheus&logo=prometheus&labelColor=ce3f3c&color=ce3f3c&logoColor=white&label=%20&style=flat-square" alt="prometheus"> <img src="https://img.shields.io/static/v1?message=Grafana&logo=Grafana&labelColor=F05A28&color=F05A28&logoColor=white&label=%20&style=flat-square" alt="grafana">
+[![asciicast](https://asciinema.org/a/v3uJFSjjkOsEIbJcuaechlvDN.svg)](https://asciinema.org/a/v3uJFSjjkOsEIbJcuaechlvDN)
+<a href="https://asciinema.org/a/v3uJFSjjkOsEIbJcuaechlvDN" target="_blank"><img src="https://asciinema.org/a/v3uJFSjjkOsEIbJcuaechlvDN.svg" /></a>
+
 
 ## Description
 
